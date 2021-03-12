@@ -1,7 +1,7 @@
 object pgchartView: TpgchartView
   Left = 0
   Top = 0
-  ClientHeight = 581
+  ClientHeight = 601
   ClientWidth = 1064
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -17,7 +17,7 @@ object pgchartView: TpgchartView
     Left = 0
     Top = 0
     Width = 1064
-    Height = 581
+    Height = 601
     Align = alClient
     TabOrder = 0
     ExplicitLeft = 304
@@ -25,7 +25,7 @@ object pgchartView: TpgchartView
     ExplicitWidth = 300
     ExplicitHeight = 150
     ControlData = {
-      4C000000F86D00000C3C00000000000000000000000000000000000000000000
+      4C000000F86D00001D3E00000000000000000000000000000000000000000000
       000000004C000000000000000000000001000000E0D057007335CF11AE690800
       2B2E126208000000000000004C0000000114020000000000C000000000000046
       8000000000000000000000000000000000000000000000000000000000000000
