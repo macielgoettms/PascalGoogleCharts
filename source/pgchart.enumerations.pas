@@ -21,6 +21,9 @@ type
     Dependencies: string;
   end;
 
+const
+  TYPE_COLUMN: array [TPGTypeColumn] of string = ('string ', 'number', 'boolean', 'date', 'datetime', 'timeofday');
+
 implementation
 
 end.

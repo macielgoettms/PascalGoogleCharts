@@ -6,16 +6,19 @@ uses
   pgchart.interfaces,
   pgchart.pie,
   pgchart.gantt,
+  pgchart.line,
   pgchart.bar;
 
 type
   TPGChart = class(TInterfacedObject, IPGChart)
   private
-    class var FInstance: IPGChart;
+  class var
+    FInstance: IPGChart;
     FDonut: IPGChartPie;
     FGantt: IPGChartGantt;
     FBar: IPGChartBar;
     FPie: IPGChartPie;
+    FLine: IPGChartLine;
     constructor Create;
   public
     class function New: IPGChart;
@@ -23,6 +26,7 @@ type
     function Gantt: IPGChartGantt;
     function Bar: IPGChartBar;
     function Pie: IPGChartPie;
+    function Line: IPGChartLine;
   end;
 
 implementation
@@ -56,6 +60,13 @@ begin
   if not Assigned(FGantt) then
     FGantt := TPGChartGantt.Create;
   Result := FGantt;
+end;
+
+function TPGChart.Line: IPGChartLine;
+begin
+  if not Assigned(FLine) then
+    FLine := TPGChartLine.Create;
+  Result := FLine;
 end;
 
 class function TPGChart.New: IPGChart;

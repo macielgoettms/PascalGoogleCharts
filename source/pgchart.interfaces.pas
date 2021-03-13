@@ -4,7 +4,8 @@ interface
 
 uses
   SHDocVw,
-  System.Rtti;
+  System.Rtti,
+  pgchart.enumerations;
 
 type
   IPGChartPie = interface
@@ -41,6 +42,20 @@ type
 
   IPGChartLine = interface
     ['{90548DA9-5A93-40D4-B3CE-F3542C078D6D}']
+    function addColumn(
+      const typeValue: TPGTypeColumn;
+      const value: TValue): IPGChartLine;
+
+    function AddRow(
+      const values: array of TValue): IPGChartLine;
+
+    function AddOption(
+      const name: string;
+      const value: string): IPGChartLine;
+
+    procedure Show; overload;
+    procedure Show(
+      const webBrowser: TWebBrowser); overload;
   end;
 
   IPGChartGantt = interface
@@ -70,6 +85,7 @@ type
     function Gantt: IPGChartGantt;
     function Bar: IPGChartBar;
     function Pie: IPGChartPie;
+    function Line: IPGChartLine;
   end;
 
 implementation

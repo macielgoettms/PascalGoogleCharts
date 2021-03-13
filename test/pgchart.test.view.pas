@@ -12,10 +12,12 @@ type
     Button2: TButton;
     Button3: TButton;
     Button4: TButton;
+    Button5: TButton;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure Button4Click(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -27,7 +29,7 @@ var
 
 implementation
 
-uses pgchart;
+uses pgchart, pgchart.enumerations;
 
 {$R *.dfm}
 
@@ -83,6 +85,36 @@ begin
     .AddValue('Chapecoense', 28)
     .AddValue('Flamengo', 6)
     .AddOption('title', '''Melhores Times''')
+    .Show;
+end;
+
+procedure TForm1.Button5Click(Sender: TObject);
+begin
+  TPGChart.New.Line
+    .addColumn(tcNumber, 'Day')
+    .addColumn(tcNumber, 'Guardians of the Galaxy')
+    .addColumn(tcNumber, 'The Avengers')
+    .addColumn(tcNumber, 'Transformers: Age of Extinction')
+    .addRow([1, 37.8, 80.8, 41.8])
+    .addRow([2, 30.9, 69.5, 32.4])
+    .addRow([3, 25.4, 57, 25.7])
+    .addRow([4, 11.7, 18.8, 10.5])
+    .addRow([5, 11.9, 17.6, 10.4])
+    .addRow([6, 8.8, 13.6, 7.7])
+    .addRow([7, 7.6, 12.3, 9.6])
+    .addRow([8, 12.3, 29.2, 10.6])
+    .addRow([9, 16.9, 42.9, 14.8])
+    .addRow([10, 12.8, 30.9, 11.6])
+    .addRow([11, 5.3, 7.9, 4.7])
+    .addRow([12, 6.6, 8.4, 5.2])
+    .addRow([13, 4.8, 6.3, 3.6])
+    .addRow([14, 4.2, 6.2, 3.4])
+    .AddOption('chart',
+    '{title: ''Box Office Earnings in First Two Weeks of Opening'',' + sLineBreak +
+    ' subtitle: ''in millions of dollars (USD)''}')
+    .AddOption('width', '900')
+    .AddOption('height', '500')
+    .AddOption('axes','{x: {0: {side: ''top''}}}')
     .Show;
 end;
 
