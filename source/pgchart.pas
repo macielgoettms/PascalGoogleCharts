@@ -12,8 +12,6 @@ uses
 type
   TPGChart = class(TInterfacedObject, IPGChart)
   private
-  class var
-    FInstance: IPGChart;
     FDonut: IPGChartPie;
     FGantt: IPGChartGantt;
     FBar: IPGChartBar;
@@ -50,7 +48,7 @@ begin
   if not Assigned(FDonut) then
   begin
     FDonut := TPGChartPie.Create;
-    FDonut.AddOption('pieHole', '0.4');
+    FDonut.AddOption('pieHole', '0.5');
   end;
   Result := FDonut;
 end;
@@ -71,10 +69,7 @@ end;
 
 class function TPGChart.New: IPGChart;
 begin
-  if not Assigned(FInstance) then
-    FInstance := TPGChart.Create;
-
-  Result := Self.FInstance;
+  Result := TPGChart.Create;
 end;
 
 function TPGChart.Pie: IPGChartPie;
